@@ -44,9 +44,13 @@ class ViewController: NSViewController {
         guesses.insert(guess, at: 0)
         tableView.insertRows(at: IndexSet(integer: 0), withAnimation: .slideDown)
         
-//        if result(for: guess).contains("4b"){
-//            let alert = NSAlert
-//        }
+        if result(for: guess).contains("4b"){
+            let alert = NSAlert()
+            alert.messageText = "You win!"
+            alert.informativeText = "Congrats, click ok to play again."
+            alert.runModal()
+            startGame()
+        }
     }
     
     fileprivate func startGame(){
