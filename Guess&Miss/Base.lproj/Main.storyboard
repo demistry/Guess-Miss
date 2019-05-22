@@ -800,6 +800,10 @@
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                             </tableColumns>
+                                            <connections>
+                                                <outlet property="dataSource" destination="XfG-lQ-9wD" id="rEv-if-cJ5"/>
+                                                <outlet property="delegate" destination="XfG-lQ-9wD" id="nle-Nt-Qjl"/>
+                                            </connections>
                                         </tableView>
                                     </subviews>
                                 </clipView>
@@ -822,6 +826,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="makeGuess:" target="XfG-lQ-9wD" id="ZtR-MH-LbS"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>
@@ -836,6 +843,11 @@
                             <constraint firstItem="y03-TZ-nEf" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="8" id="zWg-Jw-OTc"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="button" destination="Slh-CW-NDE" id="Jl2-DL-lkJ"/>
+                        <outlet property="tableView" destination="ePS-QS-t7r" id="oIC-f2-zsX"/>
+                        <outlet property="textField" destination="y03-TZ-nEf" id="d68-9Q-VgZ"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
