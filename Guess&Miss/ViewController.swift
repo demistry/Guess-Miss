@@ -16,6 +16,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var button: NSButton!
     
     var guesses : [String] = []
+    fileprivate var answer : String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,12 +33,21 @@ class ViewController: NSViewController {
     @IBAction func makeGuess(_ sender: NSButton) {
     
         let guess = textField.stringValue
+        textField.stringValue = ""
         guesses.insert(guess, at: 0)
         tableView.reloadData()
     }
     
     fileprivate func startGame(){
+        guesses.removeAll()
+        var numbers = Array(0...9)
+        numbers = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: numbers) as! [Int]
         
+        for _ in 0..<4{
+            answer.append(String(numbers.removeLast()))
+        }
+        
+        tableView.reloadData()
     }
 }
 
@@ -52,6 +62,8 @@ extension ViewController : NSTableViewDelegate, NSTableViewDataSource{
         }
         if tableColumn?.title == "Guesses"{
             view.textField?.stringValue = guesses[row]
+        } else{
+            
         }
         
         return view
